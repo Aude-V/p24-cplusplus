@@ -39,10 +39,12 @@ Rational operator +(Rational r1, Rational r2){ //somme de rationnels : on redéf
 int main(){
     Rational r1; // 0/1
     Rational r2(1); // 1/1
-    Rational r3(1,2); // 1/2
+    Rational r3(4,6); // 4/6
+    Rational r4(1,2);
     r1.print();
     r2.print();
     r3.print();
-    std::cout << r3.eval()<<std::endl;
-    std::cout<< r2 + r3 <<std::endl;
+    std::cout << r3.eval() <<std::endl;
+    Rational r5=r3+r4;
+    std::cout << r3 << '+' << r4 << '=' << r5 << std::endl;
 }
