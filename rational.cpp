@@ -1,18 +1,21 @@
 #include <iostream>
 
 class Rational {
-    friend Rational operator +(Rational,Rational); //la fonction amie peut accéder au privé
+    friend Rational operator +(const Rational&,const Rational&); //la fonction amie peut accéder au privé
+                                                                 // const => dans la fonction, l'objet est non modifiable
+                                                                 // on prend la référence du rationnel pour éviter de copier la valeur du rationnel
     private:
         int num;
         int denom;
     public:
         Rational(int n=0,int m=1):
 
-            num(n), denom(m){
+            num{n}, denom{m}{
                 if (m==0) {std::cout<<"un rationnel ne peut pas avoir 0 au dénominateur"<<std::endl; throw 0;}
             }
 
-        void print() //afficher la fraction
+        void print() const //afficher la fraction
+                           // const => indique que la fonction ne modifie rien donc on peut l'appeler sur des objets constants (sinon erreur)
         {
             std::cout<<num<<'/'<<denom<<std::endl;
         }
@@ -28,7 +31,7 @@ std::ostream & operator << (std::ostream& os, Rational r1) { //pour pouvoir util
     return os;
 }
 
-Rational operator +(Rational r1, Rational r2){ //somme de rationnels : on redéfinit l'opérateur +
+Rational operator +(const Rational& r1, const Rational& r2){ //somme de rationnels : on redéfinit l'opérateur +
     int num=r1.num*r2.denom+r1.denom*r2.num;
     int denom=r1.denom*r2.denom;
     return Rational(num,denom);
