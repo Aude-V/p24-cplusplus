@@ -7,6 +7,8 @@ const int SIZE{12};
 // on définit un type de donnée (une classe) pour gérer une pile d'entier de taille 12 (SIZE)
 class IntStack
 {
+private: // vos attributs pour représenter la pile d'entier
+    // dans cette version toutes les piles sont de taille SIZE
     int tab[SIZE]; // initialisation de la pile
     int n = 0;     // nombre d'éléments dans la pile
 public:
@@ -44,7 +46,7 @@ public:
             exit(0);
         }
         tab[n] = e;
-        n=n+1;
+        n = n + 1;
     }
     int get_top()
     {
@@ -81,17 +83,12 @@ public:
         // [1 2 3 ] pour dire que 3 entiers sont dans la pile
         // le dernier empilé est 3
         std::cout << '[';
-        for (int i=0;i<n;i++)
+        for (int i = 0; i < n; i++)
         {
             std::cout << tab[i] << ' ';
         }
         std::cout << "]\n";
     }
-
-private:
-    // vos attributs pour représenter la pile d'entier
-    // dans cette version toutes les piles sont de taille SIZE
-    // votre code ici
 };
 
 // 1. réaliser le code pour faire fonctionner cette pile d'entier de taille fixée à la compilation
@@ -106,13 +103,13 @@ int main()
     IntStack s1;
     s1.print(); // affichera [[
     s1.pop();
-    std::cout<<s1.is_empty()<<std::endl;
+    std::cout << s1.is_empty() << std::endl;
     s1.push(1);
-    std::cout<<s1.is_empty()<<std::endl;
+    std::cout << s1.is_empty() << std::endl;
     s1.print();
     s1.push(2);
     s1.push(3);
-    std::cout<<s1.is_full()<<std::endl;
+    std::cout << s1.is_full() << std::endl;
     s1.print();                         // affichera [1 2 3 ]
     std::cout << s1.pop() << std::endl; // affichera 3
     s1.print();                         // affichera [1 2 ]
