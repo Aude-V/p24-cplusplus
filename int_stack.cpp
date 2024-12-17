@@ -15,13 +15,14 @@ public:
     bool is_empty()
     {
         // cette fonction teste si la pile est vide
-        return n==0
+        return n==0;
     }
+
     bool is_full()
     {
         // cette fonction teste si la pile est pleine
         // il y a SIZE entiers dans la pile
-        return n==SIZE
+        return n==SIZE;
     }
     void push(int e)
     {
