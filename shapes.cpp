@@ -3,7 +3,7 @@
 
 class shape
 {
-protected:
+public:
     int position_x;
     int position_y;
     std::string color;
@@ -11,18 +11,6 @@ protected:
     {
         position_x = new_x;
         position_y = new_y;
-    }
-    shape find_at_position(int x, int y, std::vector<shape> v)
-    {
-        for (auto s : v)
-        {
-            if (s.position_x == x and s.position_y == y)
-            {
-                return s;
-            }
-        }
-        std::cout << "pas de forme trouvée à cette position" << std::endl;
-        exit(0);
     }
 };
 
@@ -53,5 +41,18 @@ class circle : public shape
         return 3 * c.radius * c.radius;
     }
 };
+
+shape find_at_position(int x, int y, std::vector<shape> v)
+    {
+        for (auto s : v)
+        {
+            if (s.position_x == x and s.position_y == y)
+            {
+                return s;
+            }
+        }
+        std::cout << "pas de forme trouvée à cette position" << std::endl;
+        exit(0);
+    }
 
 int main() {}
