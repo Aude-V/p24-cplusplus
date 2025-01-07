@@ -27,8 +27,16 @@ public:
             tab[i]=r.tab[i]; //on ne peut pas mettre tab=r.tab car sinon tab deviendra l'adresse du premier tableau r (celui qu'on veut copier) et non du deuxième (celui qu'on cherche à créer)
         }                    // là si on modifie tab on ne modifie pas r (alors qu'en faisant tab=r.tab ce ne serait pas le cas)
     }
-    IntStack& operator=(const IntStack& r){
-        //pour pouvoir faire j=k : supprimer le tableau j et mettre k dans j
+    IntStack & operator=(const IntStack &r){ //on ne rend pas void mais IntStack& car sinon on ne pourrait pas chaîner : t1=t2=t3
+        // t1=t2 <=> t1.operator=(t2)
+        if (this != &r){
+            delete [] tab;
+            tab=new int[r.SIZE];
+            for (int i=0;i<n;i++){
+                tab[i]=r.tab[i];
+            }
+        }
+        return *this;
     }
     bool is_empty()
     {
