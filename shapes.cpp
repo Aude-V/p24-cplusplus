@@ -17,7 +17,7 @@ public:
     int x() { return position_x; }
     int y() { return position_y; }
     virtual void print_class() { std::cout << "shape" << std::endl; }
-    virtual int area() { return 0; } // on met virtual pour que si on déclare un cercle comme shape, c++ ira chercher la méthode area de la class circle et non de la class shape
+    virtual int area() =0; // on met virtual pour que si on déclare un cercle comme shape, c++ ira chercher la méthode area de la class circle et non de la class shape
 };
 
 class rectangle : public shape
@@ -35,9 +35,9 @@ public:
             exit(0);
         }
     }
-    int area(rectangle r)
+    int area()
     {
-        return r.width * r.height;
+        return width * height;
     }
     void print_class() { std::cout << "rectangle" << std::endl; }
 };
@@ -56,9 +56,9 @@ public:
             exit(0);
         }
     }
-    int area(circle c)
+    int area()
     {
-        return 3 * c.radius * c.radius;
+        return 3 * radius * radius;
     }
     void print_class() { std::cout << "circle" << std::endl; }
 };
@@ -91,4 +91,6 @@ int main()
     shapes[1]->move(2, 8);
     find_at_position(5, 6, shapes);
     find_at_position(2, 8, shapes);
+    std::cout<<r.area()<<std::endl;;
+    std::cout<<c.area()<<std::endl;
 }
