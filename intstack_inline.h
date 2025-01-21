@@ -79,8 +79,7 @@ namespace pile
     {
         if (is_full())
         {
-            std::cout << "la pile est pleine\n";
-            exit(0);
+            throw std::logic_error ("la pile est pleine\n");
         }
         tab[n] = e;
         n = n + 1;
@@ -90,8 +89,7 @@ namespace pile
     {
         if (is_empty())
         {
-            std::cout << "la pile est vide\n";
-            return 0;
+            throw std::logic_error("la pile est vide\n");
         }
         else
         {
@@ -103,8 +101,7 @@ namespace pile
     {
         if (is_empty())
         {
-            std::cout << "la pile est vide\n";
-            return 0;
+            throw std::logic_error("la pile est vide\n");
         }
         else
         {

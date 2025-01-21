@@ -6,7 +6,6 @@ int main()
     std::cin >> size;
     pile::IntStack s(size);
     s.print(); // affichera []
-    s.pop();
     std::cout << s.is_empty() << std::endl;
     s.push(1);
     std::cout << s.is_empty() << std::endl;
