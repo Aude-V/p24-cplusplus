@@ -4,7 +4,7 @@ int main()
 {
     int size;
     std::cin >> size;
-    IntStack s(size);
+    pile::IntStack s(size);
     s.print(); // affichera []
     s.pop();
     std::cout << s.is_empty() << std::endl;
