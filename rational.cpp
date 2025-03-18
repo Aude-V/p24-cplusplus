@@ -26,7 +26,7 @@ class Rational {
 
 };
 
-std::ostream & operator << (std::ostream& os, Rational r1) { //pour pouvoir utiliser std::cout
+std::ostream & operator << (std::ostream& os, const Rational& r1) { //pour pouvoir utiliser std::cout
     r1.print();
     return os;
 }
